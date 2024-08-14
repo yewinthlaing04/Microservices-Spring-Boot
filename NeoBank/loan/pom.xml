@@ -11,6 +11,7 @@
     <groupId>com.ye</groupId>
     <artifactId>loan</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>loan</name>
     <description>loan</description>
     <url/>
@@ -93,6 +94,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <image>
+                        <name>yewint04/${project.artifactId}:neobank</name>
+                    </image>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
