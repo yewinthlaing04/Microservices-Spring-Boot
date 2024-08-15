@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to NeoBank accounts related Prod APIs"
+  contactDetails:
+    name: "Lesly Mace -  Product Owner"
+    email: "lesly@gmail.com"
+  onCallSupport:
+    - (06) 6789-9065
+    - (09) 2341-6967

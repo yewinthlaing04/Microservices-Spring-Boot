@@ -1,0 +1,18 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "1.0"
+
+loans:
+  message: "Welcome to NeoBank loans related prod APIs "
+  contactDetails:
+    name: "Viader Gaetan - Product Owner"
+    email: "gaetan@gmail.com"
+  onCallSupport:
+    - (07) 2656-8709
+    - (01) 5342-0956
+
+

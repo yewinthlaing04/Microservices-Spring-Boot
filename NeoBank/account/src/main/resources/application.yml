@@ -14,3 +14,23 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "prod"
+
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to NeoBank accounts related local APIs"
+  contactDetails:
+    name: "Ye Wint Hlaing - Developer"
+    email: "yewinthlaing@gmail.com"
+  onCallSupport:
+    - (06) 3410-1165
+    - (09) 7836-9667
+

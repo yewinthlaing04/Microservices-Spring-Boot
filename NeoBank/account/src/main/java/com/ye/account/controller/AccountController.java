@@ -1,6 +1,7 @@
 package com.ye.account.controller;
 
 import com.ye.account.constants.AccountConstants;
+import com.ye.account.dto.AccountsContactInfoDto;
 import com.ye.account.dto.CustomerDto;
 import com.ye.account.dto.ResponseDto;
 import com.ye.account.service.IAccountService;
@@ -10,7 +11,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,11 +28,23 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping(path="/api" , produces = {MediaType.APPLICATION_JSON_VALUE})
-@AllArgsConstructor
 @Validated
 public class AccountController {
 
-    private IAccountService iAccountsService;
+    private final  IAccountService iAccountsService;
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    @Autowired
+    private Environment environment;
+
+    @Autowired
+    private AccountsContactInfoDto accountsContactInfoDto;
+
+    public AccountController( IAccountService iAccountsService ) {
+        this.iAccountsService = iAccountsService;
+    }
 
     // create customer and account
     @Operation(
@@ -136,6 +152,65 @@ public class AccountController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ResponseDto(AccountConstants.STATUS_417, AccountConstants.MESSAGE_417_DELETE));
         }
+    }
+    @Operation(
+            summary = "Get Java Version",
+            description = "Get Java Version information that is deployed into account Microservices"
+    )
+    @GetMapping("/java-version")
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status "
+            )
+    })
+    public ResponseEntity<String> getJavaVersion(){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(environment.getProperty("MAVEN_HOME"));
+    }
+
+    @Operation(
+            summary = "Get Build Information",
+            description = "Get Build Version information that is deployed into account Microservices"
+    )
+    @GetMapping("/build-info")
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status "
+            )
+    })
+    public ResponseEntity<String> getBuildInfo(){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(buildVersion);
+    }
+
+    @Operation(
+            summary = "Get Contact Information",
+            description = "Get Contact Version information that is deployed into account Microservices"
+    )
+    @GetMapping("/contact-info")
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status "
+            )
+    })
+    public ResponseEntity<AccountsContactInfoDto> getContactInfo(){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(accountsContactInfoDto);
     }
 }
 

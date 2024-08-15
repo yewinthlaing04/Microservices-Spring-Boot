@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+cards:
+  message: "Welcome to NeoBank cards related QA APIs "
+  contactDetails:
+    name: "Robb Stark - QA Lead"
+    email: "robbStart@gmail.com"
+  onCallSupport:
+    - (09) 4875-4367
+    - (06) 3236-1267
+
