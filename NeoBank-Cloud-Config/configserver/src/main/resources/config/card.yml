@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+
+cards:
+  message: "Welcome to NeoBank Cards related APIs"
+  contactDetails:
+    name: "Khel Drogo - Developer"
+    email: "khelDrogo@gmail.com"
+  onCallSupport:
+    - (06) 3454-7898
+    - (09) 4532-1243

@@ -1,0 +1,11 @@
+build:
+  version: "2.0"
+
+loans:
+  message: "Welcome to NeoBank loans related QA APIs "
+  contactDetails:
+    name: "Ray Baptiste - QA Lead"
+    email: "raybaptiste@gmail.com"
+  onCallSupport:
+    - (09) 4545-6565
+    - (06) 6546-3467

@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to NeoBank accounts related QA APIs"
+  contactDetails:
+    name: "Besiki - QA Lead"
+    email: "besiki@gmail.com"
+  onCallSupport:
+    - (06) 3465-9065
+    - (09) 7867-6967

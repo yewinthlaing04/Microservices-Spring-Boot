@@ -1,0 +1,23 @@
+server:
+  port: 8071
+spring:
+  application:
+    name: "configserver"
+  profiles:
+    active: native
+#    active: git
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: "classpath:/config"
+#       Read configuration from github
+#        git:
+#          uri: "url"
+#          default-label: main
+#          timeout: 5
+#          clone-on-start: true
+#          fore-pull: true
+encrypt:
+  key: "45D81EC1EF61DF9AD8D3E5BB397F9"
+

@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "1.0"
+
+cards:
+  message: "Welcome to NeoBank cards related prod APIs "
+  contactDetails:
+    name: "Sansa - Product Owner"
+    email: "sansa@gmail.com"
+  onCallSupport:
+    - (06) 3432-2356
+    - (09) 6564-8721
