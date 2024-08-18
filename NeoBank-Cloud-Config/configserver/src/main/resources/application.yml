@@ -4,20 +4,40 @@ spring:
   application:
     name: "configserver"
   profiles:
-    active: native
-#    active: git
+#    active: native
+    active: git
   cloud:
     config:
       server:
-        native:
-          search-locations: "classpath:/config"
+#        native:
+#          search-locations: "classpath:/config"
 #       Read configuration from github
-#        git:
-#          uri: "url"
-#          default-label: main
-#          timeout: 5
-#          clone-on-start: true
-#          fore-pull: true
+        git:
+          uri: "https://github.com/yewinthlaing04/config-yml.git"
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          fore-pull: true
+  rabbitmq:
+    host: "localhost"
+    port: "5672"
+    username: "guest"
+    password: "guest"
+
 encrypt:
   key: "45D81EC1EF61DF9AD8D3E5BB397F9"
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
