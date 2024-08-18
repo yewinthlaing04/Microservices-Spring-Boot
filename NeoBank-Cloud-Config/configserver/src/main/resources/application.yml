@@ -18,11 +18,6 @@ spring:
           timeout: 5
           clone-on-start: true
           fore-pull: true
-  rabbitmq:
-    host: "localhost"
-    port: "5672"
-    username: "guest"
-    password: "guest"
 
 encrypt:
   key: "45D81EC1EF61DF9AD8D3E5BB397F9"
@@ -33,9 +28,9 @@ management:
       exposure:
         include: "*"
   health:
-    readinessstate:
+    readiness-state:
       enabled: true
-    livenessstate:
+    liveness-state:
       enabled: true
   endpoint:
     health:
