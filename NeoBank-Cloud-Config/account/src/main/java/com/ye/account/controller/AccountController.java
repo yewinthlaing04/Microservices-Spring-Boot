@@ -74,7 +74,7 @@ public class AccountController {
             responseCode = "200",
             description = "Http Status OK"
     )
-    public ResponseEntity<CustomerDto> fetchAccountDetao(
+    public ResponseEntity<CustomerDto> fetchAccountDetail(
             @RequestParam
             @Pattern(regexp = "(^$|[0-9]{10})",
                     message="Mobile Number must be 10 digits")

@@ -40,8 +40,8 @@ public class CardsController {
         this.iCardsService = iCardsService;
     }
 
-    @Value("${build.version}")
-    private String buildversion ;
+//    @Value("${build.version}")
+//    private String buildversion ;
 
     @Autowired
     private Environment environment;
@@ -174,29 +174,29 @@ public class CardsController {
         }
     }
 
-    @Operation(
-            summary = "Get Build Info",
-            description = "Get Build Information that is deployed into cards microservices"
-    )
-    @ApiResponses({
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "HTTP Status OK"
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "HTTP Status Internal Server Error",
-                    content = @Content(
-                            schema = @Schema(implementation = ErrorResponseDto.class)
-                    )
-            )
-    }
-    )
-    @GetMapping("/build-info")
-    public ResponseEntity<String> getBuildVersion(){
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(buildversion);
-    }
+//    @Operation(
+//            summary = "Get Build Info",
+//            description = "Get Build Information that is deployed into cards microservices"
+//    )
+//    @ApiResponses({
+//            @ApiResponse(
+//                    responseCode = "200",
+//                    description = "HTTP Status OK"
+//            ),
+//            @ApiResponse(
+//                    responseCode = "500",
+//                    description = "HTTP Status Internal Server Error",
+//                    content = @Content(
+//                            schema = @Schema(implementation = ErrorResponseDto.class)
+//                    )
+//            )
+//    }
+//    )
+//    @GetMapping("/build-info")
+//    public ResponseEntity<String> getBuildVersion(){
+//        return ResponseEntity.status(HttpStatus.OK)
+//                .body(buildversion);
+//    }
 
     @Operation(
             summary = "Get Env Info",

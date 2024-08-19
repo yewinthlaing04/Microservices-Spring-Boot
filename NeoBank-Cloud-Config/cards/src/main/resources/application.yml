@@ -5,15 +5,28 @@ spring:
     name: "card"
   profiles:
     active: "prod"
+#  datasource:
+#    url: jdbc:mysql://localhost:3333/cardsdb
+#    username: root
+#    password: root
+#  jpa:
+#    show-sql: true
+#  sql:
+#    init:
+#      mode: always
   datasource:
-    url: jdbc:mysql://localhost:3308/cardsdb
-    username: root
-    password: admin
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
   jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
     show-sql: true
-  sql:
-    init:
-      mode: always
   config:
     import: "optional:configserver:http://localhost:8071/"
 
@@ -23,6 +36,31 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+endpoints:
+  shutdown:
+    enabled: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8070/eureka/
+
+info:
+  app:
+    name: "cards"
+    description: "Neo Bank Account Application"
+    version: "1.0.0"
 
 
 
