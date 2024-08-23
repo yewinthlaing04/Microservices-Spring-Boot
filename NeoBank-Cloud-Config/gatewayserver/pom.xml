@@ -89,7 +89,7 @@
                 <version>3.3.2</version>
                 <configuration>
                     <to>
-                        <image>neobank/${project.artifactId}:neobank</image>
+                        <image>yewint04/${project.artifactId}:neobank</image>
                     </to>
                 </configuration>
             </plugin>

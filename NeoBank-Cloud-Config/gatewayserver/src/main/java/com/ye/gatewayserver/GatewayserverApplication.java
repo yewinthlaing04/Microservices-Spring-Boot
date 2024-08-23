@@ -19,16 +19,18 @@ public class GatewayserverApplication {
     public RouteLocator neoBankRouteConfig(RouteLocatorBuilder builder){
 
         return builder.routes()
+
                 .route( p -> p.path("/neobank/accounts/**")
-                        .filters( f -> f.rewritePath("/neobank/accounts/(?<segment>.*)",
-                                "/${segment}")
+                        .filters( f -> f.rewritePath("/neobank/accounts/(?<segment>.*)", "/${segment}")
                                 .addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))   // filter
                         .uri("lb://ACCOUNTS"))
-                .route( p -> p.path( "/neobank/loan/**")
+
+                .route( p -> p.path( "/neobank/loans/**")
                         .filters( f -> f.rewritePath("/neobank/loans/(?<segment>.*)","/${segment}")
                                 .addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
                         .uri("lb://LOANS"))
-                .route( p -> p.path("/neobank/card/**")
+
+                .route( p -> p.path("/neobank/cards/**")
                         .filters( f -> f.rewritePath("/neobank/cards/(?<segment>.*)" , "/${segment}")
                                 .addResponseHeader("X-Response-Time",LocalDateTime.now().toString()))
                         .uri("lb://CARDS")).build();

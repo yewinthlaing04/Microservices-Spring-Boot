@@ -36,9 +36,17 @@ management:
     web:
       exposure:
         include: "*"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
   endpoint:
     shutdown:
       enabled: true
+    health:
+      probes:
+        enabled: true
   info:
     env:
       enabled: true
@@ -61,5 +69,11 @@ info:
     name: "accounts"
     description: "Neo Bank Accounts Application"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      ye:
+        account: DEBUG
 
 
