@@ -32,3 +32,11 @@ logging:
     com:
       ye:
         gatewayserver: DEBUG
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      sliding-window-size: 10
+      permittedNumberOfCallsInHalfOpenState: 2
+      failureRateThreshold: 50  # if 50 percent of the request fails , it will go from the open state to the close state
+      waitDurationInOpenState: 10000
