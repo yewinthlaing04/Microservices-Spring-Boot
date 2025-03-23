@@ -9,6 +9,9 @@ spring:
         locator:
           enabled: false  # this is important for gateway server
           lower-case-service-id: true
+      httpclient:
+        connect-timeout: 1000
+        response-timeout: 2s # this is for timeout configuration for all microservices ( accounts cards loans )
 management:
   endpoints:
     web:
